@@ -1,0 +1,59 @@
+from django.contrib.auth import authenticate, login, logout
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+from .models import Users
+
+# Create your views here.
+@api_view(['POST'])
+def registration(request): 
+    '''Регистрация пользователя'''
+    
+    email = request.data.get('email')
+    password = request.data.get('password')
+    
+    try:
+        Users.objects.get(email=email)
+    except Exception:
+        name = request.data.get('name')
+        surname = request.data.get('password')
+
+        user = Users(email=email, first_name=name, last_name=surname)
+        user.set_password(password)
+        user.save()
+        return Response({'status': 'ok', 'comment': 'success'})
+    return Response({'status': 'error', 'comment': 'such user has already been registred'})
+        
+@api_view(['GET'])
+def login_check(request): 
+    '''Проверка на авторизацию'''
+    
+    if request.user.is_authenticated: 
+        return Response({'auth': True})
+    return Response({'auth': False})
+
+@api_view(['POST'])
+def login(request): 
+    '''Авторизация пользователя'''
+    
+    email = request.data.get('email')
+    password = request.data.get('password')
+    
+    user = authenticate(request=request, email=email, password=password)
+    if user is not None:
+        login(request, user)
+        return Response({'status': 'ok', 'comment': 'success'})
+    return Response(
+        {
+            'status': 'error', 
+            'comment': 'there is not such a user'
+        },
+        status=400
+    )
+    
+@api_view(['POST'])
+def logout(request):
+    '''Выход из аккаунта пользователя'''
+    
+    logout(request)
+    return Response({'status': 'ok', 'comment': 'success'})
