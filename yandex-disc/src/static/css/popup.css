@@ -1,0 +1,137 @@
+.popup {
+    cursor: pointer;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    background-color: rgba(50, 50, 50, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__container {
+    position: relative;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+
+.popup__title {
+    font-size: 30px;
+    color: rgb(97, 122, 145);
+}
+
+.popup__change_btn {
+    font-size: 18px;
+    transition: .3s ease;
+}
+
+.popup__change_btn.active {
+    color: white;
+}
+
+.button-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #617a91;
+}
+
+.button-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #617a91;
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.popup__change_btn {
+    position: relative;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: rgb(97, 122, 145);
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.popup__form {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.popup__form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup__p {
+    font-size: 18px;
+    color: white;
+}
+
+.input__container {
+    margin-bottom: 20px;
+}
+
+.input__container .popup__p {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #8d959c;
+    padding: 5px 15px;
+}
+
+.popup__submit {
+    color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 100%;
+    background-color: #617a91;
+}
+
+.input__subcontainer {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.input__subcontainer > * {
+    width: 45%;
+}
+
+.popup__close {
+    cursor: pointer;
+    color: rgb(97, 122, 145);
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    font-size: 30px;
+    transition: .3s ease;
+}
+
+.popup__close:hover {
+    transform: scale(1.1);
+}

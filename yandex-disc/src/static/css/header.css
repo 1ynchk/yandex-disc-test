@@ -1,0 +1,50 @@
+.header {
+    padding: 15px 40px;
+    width: 100%;
+    background-color: #f0f8ff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    color: rgb(97, 122, 145);
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.header__underline {
+    border-radius: 20px;
+    margin-top: 10px;
+    height: 2px;
+    width: 100%;
+    background: rgb(240, 248, 255);
+    background: linear-gradient(260deg, rgba(240, 248, 255, 1) 0%, rgba(96, 121, 144, 1) 100%);
+}
+
+.header__icon {
+    color: rgb(97, 122, 145);
+    font-size: 40px;
+    transition: .3s;
+}
+
+.header__btn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: rgb(97, 122, 145);
+    background-color: transparent;
+}
+
+.header__btn:hover .header__icon {
+    transform: scale(1.05);
+}
+
