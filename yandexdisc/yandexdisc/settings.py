@@ -18,7 +18,9 @@ SECRET_KEY = 'django-insecure-lh2+t^3+%w3=!yd6+d3b18u-hkst&p0%!=ra4qc_+prg6da%dd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -84,6 +86,20 @@ else:
     CORS_ALLOW_ORIGINS = [
         os.getenv("DOMEN_NAME"), 
         ]
+
+CORS_ALLOWED_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'yandexdisc.urls'
 
