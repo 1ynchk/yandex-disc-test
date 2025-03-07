@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchLogin } from './../store/requests/login';
 import { fetchRegister } from '../store/requests/register'
-import { setAuth } from '../store/slices/UsersSlice'
+import { setAuth, setLoginError } from '../store/slices/UsersSlice'
 
 const Popup = (props) => {
     const {
@@ -20,6 +20,7 @@ const Popup = (props) => {
     const dispatch = useDispatch()
     const loading_container = useSelector(state => state.users.loading_container)
     const isAuth = useSelector(state => state.users.isAuth)
+    const isLoginError = useSelector(state => state.users.isLoginError)
 
     // inputs state
     const [isLoginEmail, setLoginEmail] = useState(null)
@@ -101,7 +102,7 @@ const Popup = (props) => {
                                 </div>
                             </div>
                             {
-                                !loading_container && isAuth == null && (
+                                !loading_container && isAuth == null && isLoginError == false && (
                                     <>
                                         <LayoutGroup>
                                             <div className="button-container">
@@ -249,17 +250,34 @@ const Popup = (props) => {
                                 )
                             }
                             {
-                                !loading_container && isAuth == false && (
+                                !loading_container && isAuth == false && isLoginError == false && (
                                     <div className='popup__subcontainer'>
                                         <div className='welcome__p'>
-                                            Пользователь с такой почтой уже существует 
+                                            Пользователь с такой почтой уже существует
                                         </div>
                                         <button
                                             onClick={() => {
                                                 dispatch(setAuth())
                                             }}
                                             className='popup__submit'>
-                                                К регистрации
+                                            К регистрации
+                                        </button>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                !loading_container && isLoginError == true && isAuth == null && (
+                                    <div className='popup__subcontainer'>
+                                        <div className='welcome__p'>
+                                            Не кореектные данные 
+                                        </div>
+                                        <button
+                                            onClick={() => {
+                                                dispatch(setLoginError())
+                                            }}
+                                            className='popup__submit'>
+                                            К входу
                                         </button>
                                     </div>
                                 )

@@ -22,13 +22,12 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCheckLogin())
-  }, [])
+  }, [isLogin])
 
   useEffect(() => {
     if (isLogin) {
       navigate('/disc')
     }
-
   }, [isLogin])
 
   return (

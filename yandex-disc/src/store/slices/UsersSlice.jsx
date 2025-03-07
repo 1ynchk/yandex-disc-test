@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCheckLogin } from "../requests/check-login";
 import { fetchRegister } from './../requests/register';
-
+import { fetchLogin } from "../requests/login";
+import { fetchLogout } from "../requests/logout";
 
 const UsersSlice = createSlice(
     {
@@ -11,19 +12,44 @@ const UsersSlice = createSlice(
             isLogin: false,
             loading: false,
             loading_container: false,
-            isAuth: null
+            isAuth: null,
+            isLoginError: false,
+            isLoaded: false,
+            firstName: ''
         },
 
         reducers: {
             setAuth(state, action) {
                 state.isAuth = null
+            }, 
+            setLoginError(state, action) {
+                state.isLoginError = false
             }
         },
 
         extraReducers: (builder) => {
             builder
                 .addCase(
+                    fetchLogin.fulfilled, (state, action) => {
+                        state.loading_container = false
+                        window.location.reload()
+                    }
+                )
+                .addCase(
+                    fetchLogin.pending, (state, action) => {
+                        state.loading_container = true
+                    }
+                )
+                .addCase(
+                    fetchLogin.rejected, (state, action) => {
+                        state.loading_container = false
+                        state.isLoginError = true
+                    }
+                )
+                .addCase(
                     fetchCheckLogin.fulfilled, (state, action) => {
+                        state.firstName = action.payload.name
+                        state.isLoaded = true
                         state.isLogin = action.payload.auth
                         state.loading = false
                     }
@@ -56,10 +82,16 @@ const UsersSlice = createSlice(
                         state.isAuth = false
                     }
                 )
+                .addCase(
+                    fetchLogout.fulfilled, (state, action) => {
+                        state.isLogin = false
+                        window.location.reload()
+                    }
+                )
         }
     }
 )
 
-export const { setAuth } = UsersSlice.actions 
+export const { setAuth, setLoginError } = UsersSlice.actions
 
 export default UsersSlice.reducer
