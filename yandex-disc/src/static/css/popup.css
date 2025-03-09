@@ -1,4 +1,5 @@
 .popup {
+    z-index: 3;
     cursor: pointer;
     position: fixed;
     inset: 0;
@@ -23,7 +24,21 @@
     background-color: white;
 }
 
+.popup__p.download_file {
+    color: black;
+}
+
+.popup__submit.popup_download_link {
+    text-align: center;
+    transition: .3s ease;
+}
+
+.popup__submit.popup_download_link:active {
+    transform: scale(0.95);
+}
+
 .popup__title {
+    text-align: center;
     font-size: 30px;
     color: rgb(97, 122, 145);
 }
@@ -156,7 +171,7 @@
     right: 15px;
     color: rgb(97, 122, 145);
     font-size: 20px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .popup__submit.welcome_btn {
@@ -174,4 +189,43 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+}
+
+.loading_file_container {
+    min-height: 300px;
+}
+
+.disc__subtitle.filter_container {
+    margin-top: 0px;
+}
+
+.disc__filters {
+    margin-top: 25px;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.disc__filter {
+    margin-top: 10px;
+}
+
+.disc__filters_container {
+    margin-top: 10px;
+}
+
+.disc__filter_title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.disc__filter_el {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disc__filter_subtitle {
+    font-size: 16px;
 }
