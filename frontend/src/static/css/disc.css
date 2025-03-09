@@ -1,0 +1,241 @@
+.disc {
+    margin-top: 25px;
+}
+
+.disc__greet {
+    color: rgb(97, 122, 145);
+    font-size: 24px;
+    width: fit-content;
+    padding: 15px 25px;
+    border-bottom-right-radius: 20px;
+    background-color: #f0f8ff;
+}
+
+.disc__url_container {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.disc__url {
+    width: 70%;
+    position: relative;
+
+}
+
+.disc__p.disc_p_white{
+    color: white;
+}
+
+.disc__input {
+    padding: 0px 15px;
+    width: 100%;
+    height: 35px;
+    border: 2px solid rgb(97, 122, 145);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.disc__url_search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(97, 122, 145);
+    font-size: 18px;
+    height: 100%;
+    width: 35px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+}
+
+.disc__url_search:disabled {
+    cursor: default;
+    background-color: grey;
+    color: rgb(50, 50, 50);
+}
+
+.disc__files_section {
+    margin-top: 25px;
+    width: 60%;
+    min-width: 600px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.disc__subtitle {
+    margin-top: 25px;
+    font-size: 22px;
+    color: grey;
+    font-weight: 500;
+}
+
+.disc__erorr_container {
+    padding: 15px 20px;
+    margin-top: 20px;
+    background-color: rgb(182, 124, 124);
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.disc__error_title {
+    font-size: 18px;
+}
+
+.disc__erorr_value {
+    margin-top: 10px;
+}
+
+.disc__files_section {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.file {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    transition: .3s ease;
+    position: relative;
+    margin: 0px 10px;
+}
+
+.file__download {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    align-self: center;
+    font-size: 25px;
+    background-color: rgb(97, 122, 145);
+    color: white;
+}
+
+.file:hover .file__icon {
+    border-radius: 10px;
+    transform: scale(1.02);
+}
+
+.file__icon {
+    color: rgb(97, 122, 145);
+    transition: .3s ease;
+    font-size: 100px;
+    width: 100%;
+}
+
+.file__download.inactive {
+    cursor: default;
+    background-color: grey;
+}
+
+.disc__token {
+    background-color: aliceblue;
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.disc__url.token_container {
+    width: 100%;
+}
+
+.disc__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.disc__get_token_link {
+    background-color: rgb(97, 122, 145);
+    color: white;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.disc__section {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disc__filters {
+    margin-top: 25px;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.disc__filter {
+    margin-top: 10px;
+}
+
+.disc__filters_container {
+    margin-top: 10px;
+}
+
+.disc__filter_title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.disc__filter_el {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disc__filter_subtitle {
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    .disc__url_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .disc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .disc__section {
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        order: 2;
+    }
+    .disc__files_section {
+        width: 60%;
+        min-width: 5%;
+        justify-content: center;
+    }
+}
+
+.disc__p {
+    color: rgb(50, 50, 50);
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+   .disc__url_container {
+    width: 100%;
+   } 
+   .disc__files_section {
+    width: 100%;
+   }
+   .disc__filters {
+    width: 100%;
+   }
+}

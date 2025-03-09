@@ -1,0 +1,27 @@
+.welcome {
+    padding: 25px 40px;
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome__container {
+    width: 50%;
+}
+
+.welcome__btn_container {
+    margin-top: 25px;
+    width: 45%;
+
+}
+
+.welcome__title {
+    color: rgb(97, 122, 145);
+}
+
+.welcome__p {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 300;
+}
