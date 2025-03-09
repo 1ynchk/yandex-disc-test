@@ -270,7 +270,7 @@ const Popup = (props) => {
                                 !loading_container && isLoginError == true && isAuth == null && (
                                     <div className='popup__subcontainer'>
                                         <div className='welcome__p'>
-                                            Не кореектные данные 
+                                            Не коректные данные 
                                         </div>
                                         <button
                                             onClick={() => {

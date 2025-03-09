@@ -199,33 +199,3 @@
     margin-top: 0px;
 }
 
-.disc__filters {
-    margin-top: 25px;
-    width: 300px;
-    background-color: aliceblue;
-    padding: 15px 25px;
-    border-radius: 10px;
-}
-
-.disc__filter {
-    margin-top: 10px;
-}
-
-.disc__filters_container {
-    margin-top: 10px;
-}
-
-.disc__filter_title {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.disc__filter_el {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.disc__filter_subtitle {
-    font-size: 16px;
-}

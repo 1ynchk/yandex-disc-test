@@ -8,7 +8,7 @@
     width: fit-content;
     padding: 15px 25px;
     border-bottom-right-radius: 20px;
-    background-color: aliceb1lue;
+    background-color: #f0f8ff;
 }
 
 .disc__url_container {
@@ -20,6 +20,10 @@
     width: 70%;
     position: relative;
 
+}
+
+.disc__p.disc_p_white{
+    color: white;
 }
 
 .disc__input {
@@ -44,7 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition:  .3s ease;
+    transition: .3s ease;
 }
 
 .disc__url_search:disabled {
@@ -56,6 +60,7 @@
 .disc__files_section {
     margin-top: 25px;
     width: 60%;
+    min-width: 600px;
     flex-wrap: wrap;
     display: flex;
 }
@@ -94,12 +99,12 @@
 
 .file {
     margin-top: 10px;
-    margin-right: 20px;
     display: flex;
     flex-direction: column;
     width: 100px;
     transition: .3s ease;
     position: relative;
+    margin: 0px 10px;
 }
 
 .file__download {
@@ -125,7 +130,7 @@
     width: 100%;
 }
 
-.file__download.inactive  {
+.file__download.inactive {
     cursor: default;
     background-color: grey;
 }
@@ -145,7 +150,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-} 
+}
 
 .disc__get_token_link {
     background-color: rgb(97, 122, 145);
@@ -153,6 +158,44 @@
     padding: 15px 20px;
     margin-top: 20px;
     border-radius: 10px;
+}
+
+.disc__section {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disc__filters {
+    margin-top: 25px;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.disc__filter {
+    margin-top: 10px;
+}
+
+.disc__filters_container {
+    margin-top: 10px;
+}
+
+.disc__filter_title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.disc__filter_el {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disc__filter_subtitle {
+    font-size: 16px;
 }
 
 @media (max-width: 900px) {
@@ -165,5 +208,34 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-    } 
+    }
+
+    .disc__section {
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        order: 2;
+    }
+    .disc__files_section {
+        width: 60%;
+        min-width: 5%;
+        justify-content: center;
+    }
+}
+
+.disc__p {
+    color: rgb(50, 50, 50);
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+   .disc__url_container {
+    width: 100%;
+   } 
+   .disc__files_section {
+    width: 100%;
+   }
+   .disc__filters {
+    width: 100%;
+   }
 }

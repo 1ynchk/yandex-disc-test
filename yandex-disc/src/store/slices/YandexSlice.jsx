@@ -11,7 +11,7 @@ const YandexSlice = createSlice(
             file: {},
             dir: [],
             loading: false,
-            error: '',
+            error: true,
             _type: '',
             loadingFile: false,
             isPopupActive: false,
@@ -52,7 +52,7 @@ const YandexSlice = createSlice(
                 )
                 .addCase(
                     fetchGetFiles.rejected, (state, action) => {
-                        state.error = action.payload.comment
+                        state.error = true
                         state.loading = false
                     }
                 )
