@@ -102,13 +102,12 @@ const Disc = () => {
 
             </div>
 
-
             <div className='disc__subtitle'>Файлы:</div>
 
             <div className='disc__section'>
                 <div className='disc__files_section'>
                     {
-                        loading == false && error && (
+                        loading == false && error == true && (
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}

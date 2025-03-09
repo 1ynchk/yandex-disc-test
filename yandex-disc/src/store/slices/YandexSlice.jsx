@@ -11,7 +11,7 @@ const YandexSlice = createSlice(
             file: {},
             dir: [],
             loading: false,
-            error: true,
+            error: false,
             _type: '',
             loadingFile: false,
             isPopupActive: false,
@@ -42,7 +42,7 @@ const YandexSlice = createSlice(
                             state.file = action.payload
                         }
                         state.loading = false
-                        state.error = ''
+                        state.error = false
                     }
                 )
                 .addCase(
