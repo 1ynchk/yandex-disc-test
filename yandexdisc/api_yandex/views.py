@@ -28,16 +28,12 @@ def get_yandex_files(request):
     params = {'public_key': public_key}
     response = requests.get(YANDEX_API_BASE_GET_LIST, params=params, headers=headers)
 
+    data = response.json()
+
     if response.status_code == 200:
-        return Response(response.json())
+        return Response(data)
     else:
-        return Response(
-            {
-                'status': 'error',
-                'comment': response.data.get('message')
-            }, 
-            status=response.status_code
-        )
+        return Response(data, status=response.status_code)
 
 @api_view(['GET'])
 def get_yandex_download_link(request):
