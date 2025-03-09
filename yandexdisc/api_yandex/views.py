@@ -24,9 +24,8 @@ def get_yandex_files(request):
             }, 
             status=400
             )
-    headers =  {'Authorization': f'OAuth {os.getenv('YANDEX_OAUTH_TOKEN')}'}
     params = {'public_key': public_key}
-    response = requests.get(YANDEX_API_BASE_GET_LIST, params=params, headers=headers)
+    response = requests.get(YANDEX_API_BASE_GET_LIST, params=params)
 
     data = response.json()
 
