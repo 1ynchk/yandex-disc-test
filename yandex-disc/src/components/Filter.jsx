@@ -57,18 +57,23 @@ const Filter = (props) => {
                         onChange={() => setFilter('application')}
                         type='radio' />
                 </div>
-                <button 
-                    disabled={filter != null ? false : true}
-                    onClick={() => setFilter(null)}
-                    className="popup__submit">
-                    Очистить фильтры
-                </button>
+                {
+                    type == 'dir' && (
+                        <button
+                            disabled={filter != null ? false : true}
+                            onClick={() => setFilter(null)}
+                            className="popup__submit">
+                            Очистить фильтры
+                        </button>
+                    )
+                }
+
                 {
                     type == 'file' || type == '' && (
                         <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: 1}}
-                            exit={{opacity: 0}}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
                             className="disc__p disc_p_white">
                             Фильтрацию поддерживают только директории
                         </motion.div>
