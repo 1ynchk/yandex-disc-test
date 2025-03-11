@@ -1,0 +1,39 @@
+
+services:
+
+  backend-server:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      - "8000:8000"
+    environment:
+      - DB_NAME=YOUR_NAME
+      - DB_PASSWORD=YOUR_PASSWORD
+      - DB_HOST=YOUR_HOST
+      - DB_PORT=YOUR_PORT
+      - DB_USER=YOUR_USER
+      - DOMEN_NAME=http://127.0.0.1
+    networks:
+      - mynetwork
+
+  web-server:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+      args:
+        REACT_APP_API_URL: http://127.0.0.1:8000 
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_API_URL=http://127.0.0.1:8000
+    networks: 
+      - mynetwork
+    depends_on:
+      - backend-server
+
+networks:
+  mynetwork:
+    driver: bridge

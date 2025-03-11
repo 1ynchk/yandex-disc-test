@@ -15,22 +15,20 @@ function App() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  
   const [isPopupActive, setPopupActive] = useState(false)
   const loading = useSelector(state => state.users.loading)
   const isLogin = useSelector(state => state.users.isLogin)
 
-  // console.log(document.cookie)
+  useEffect(() => {
+    dispatch(fetchCheckLogin())
+  }, [isLogin])
 
-  // useEffect(() => {
-  //   dispatch(fetchCheckLogin())
-  // }, [isLogin])
-
-  // useEffect(() => {
-  //   if (isLogin) {
-  //     navigate('/disc')
-  //   }
-  // }, [isLogin])
+  useEffect(() => {
+    if (isLogin) {
+      navigate('/disc')
+    }
+  }, [isLogin])
 
   return (
     <div className="App">
@@ -38,13 +36,16 @@ function App() {
         <Header
           setPopupActive={setPopupActive}
           isPopupActive={isPopupActive} />
-        {/* <Popup
+        <Popup
           setPopupActive={setPopupActive}
           isPopupActive={isPopupActive}
-        /> */}
+        />
         <Routes>
-          
-          <Route exact path='/' element={<Disc />} />
+          <Route exact path='/' element={<Welcome
+            setPopupActive={setPopupActive}
+            isPopupActive={isPopupActive}
+          />} />
+          <Route exact path='/disc' element={<Disc />}/>
         </Routes>
       </div>
 

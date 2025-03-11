@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 import dotenv
@@ -22,6 +21,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1'
 ]
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     
     # apps
     'api_users',
+    'api_yandex'
 ]
 
 MIDDLEWARE = [
@@ -56,19 +57,22 @@ CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None  
 
 SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SECURE = True
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
+HOST_VAR = 'http://127.0.0.1'
+
 CORS_ALLOWED_ORIGINS = [
-  'http://localhost:3000'
+    HOST_VAR
 ]
 
 if DEBUG: 
     CORS_ALLOW_ORIGINS = [
-        "http://localhost:3000", 
+        HOST_VAR 
         ]
 else: 
     CORS_ALLOW_ORIGINS = [
@@ -77,12 +81,11 @@ else:
     
     
 if DEBUG:
-   CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-] 
+    CSRF_TRUSTED_ORIGINS = [
+        HOST_VAR
+    ]
 else: 
-    CORS_ALLOW_ORIGINS = [
+    CSRF_TRUSTED_ORIGINS = [
         os.getenv("DOMEN_NAME"), 
         ]
 
@@ -120,10 +123,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'yandexdisc.wsgi.application'
 
+import psycopg 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3", 
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'PASSWORD': os.getenv('DB_PASSWORD'), 
+        'HOST': os.getenv('DB_HOST'), 
+        'PORT': os.getenv('DB_PORT'), 
+        'USER': os.getenv('DB_USER')
     }
 }
 

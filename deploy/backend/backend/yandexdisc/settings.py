@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 import dotenv
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     
     # apps
     'api_users',
+    'api_yandex'
 ]
 
 MIDDLEWARE = [
@@ -64,13 +64,15 @@ SESSION_COOKIE_SECURE = True
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
+HOST_VAR = 'http://127.0.0.1'
+
 CORS_ALLOWED_ORIGINS = [
-  'http://127.0.0.1:3000'
+    HOST_VAR
 ]
 
 if DEBUG: 
     CORS_ALLOW_ORIGINS = [
-        "http://127.0.0.1:3000", 
+        HOST_VAR 
         ]
 else: 
     CORS_ALLOW_ORIGINS = [
@@ -80,10 +82,10 @@ else:
     
 if DEBUG:
     CSRF_TRUSTED_ORIGINS = [
-        "http://127.0.0.1:3000"
+        HOST_VAR
     ]
 else: 
-    CORS_ALLOW_ORIGINS = [
+    CSRF_TRUSTED_ORIGINS = [
         os.getenv("DOMEN_NAME"), 
         ]
 
@@ -121,7 +123,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'yandexdisc.wsgi.application'
 
-import psycopg2
+import psycopg 
 
 DATABASES = {
     'default': {

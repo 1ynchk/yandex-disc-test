@@ -33,7 +33,7 @@ const Header = (props) => {
 
             <div className='header__container'>
 
-                {/* {
+                {
                     !isLogin && (
                         <div
                             onClick={() => handleBtn()}
@@ -53,7 +53,7 @@ const Header = (props) => {
                             <button className='header__p'>Выйти</button>
                         </div>
                     )
-                } */}
+                }
             </div>
 
         </header>
